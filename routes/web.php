@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
@@ -51,8 +54,13 @@ Route::get('/user/profile', function () {
 //Controller
 Route::get('/hello', [WelcomeController::class,'hello']);
 
-Route::get('/', [PageController::class,'index']);
+// Route::get('/', [PageController::class,'index']);
 
-Route::get('/about', [PageController::class,'about']);
+// Route::get('/about', [PageController::class,'about']);
 
-Route::get('/articles/{id}', [PageController::class,'articles']);
+// Route::get('/articles/{id}', [PageController::class,'articles']);
+
+//Single Action Controller
+Route::get('/', HomeController::class);
+Route::get('/about', AboutController::class);
+Route::get('/articles/{id}', ArticleController::class);
